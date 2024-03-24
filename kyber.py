@@ -191,9 +191,12 @@ class Kyber:
         # Reduce vectors mod^+ q
         t.reduce_coefficents()
         s.reduce_coefficents()
-        
+        print(len(rho))
+        print(rho)
+        print(len(sigma))
+        print(sigma)
         # Encode elements to bytes and return
-        pk = t.encode(l=12) + rho
+        pk = t.encode(l=12) + rho 
         sk = s.encode(l=12)
         return pk, sk
         
@@ -293,6 +296,7 @@ class Kyber:
         
         # sk = sk' || pk || H(pk) || z
         sk = _sk + pk + self._h(pk) + z
+        print((z))
         return pk, sk
         
     def enc(self, pk, key_length=32):
